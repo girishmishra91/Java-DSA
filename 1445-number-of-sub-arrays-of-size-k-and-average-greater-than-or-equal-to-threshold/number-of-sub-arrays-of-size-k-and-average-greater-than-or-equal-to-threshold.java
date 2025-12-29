@@ -6,15 +6,13 @@ class Solution {
         for(int p=0;p<=k-1;p++){
             sum+=arr[p];
         }
-        int avg=sum/k;
-        if(avg>=threshold){
+        if(sum/k>=threshold){
             count++;
         }
         int i=1,j=k;
         while(j<n){
             sum=sum-arr[i-1]+arr[j];
-            int avgi=sum/k;
-            if(avgi>=threshold){
+            if(sum/k>=threshold){
                 count++;
             }
             i++;j++;
