@@ -15,7 +15,7 @@ class Solution {
             }
         }
         if(count_neg%2!=0){
-            return sum-2L*maxsum;
+            return sum-2*maxsum;
         }
         return sum;
     }
