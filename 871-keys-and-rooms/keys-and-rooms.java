@@ -13,11 +13,20 @@ class Solution {
             }
         }
     }
+    public static void dfs(int start,List<List<Integer>>adj,boolean[] vis){
+        vis[start]=true;
+        for(int ele:adj.get(start)){
+            if(!vis[ele]){
+                dfs(ele,adj,vis);
+            }
+        }
+    }
     public boolean canVisitAllRooms(List<List<Integer>> adj) {
         int n=adj.size();
         boolean[] vis=new boolean[n];
         vis[0]=true;
-        bfs(0,adj,vis);
+        //bfs(0,adj,vis);
+        dfs(0,adj,vis);
         for(boolean ele:vis){
             if(ele==false) return false;
         }
