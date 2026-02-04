@@ -25,8 +25,8 @@ class Solution {
         int[] visited=new int[n];
         Arrays.fill(visited,-1);
         for(int i=0;i<n;i++){
-            if(ans==false) return ans;
-            if(i==0||visited[i]==-1){
+            //if(ans==false) return ans;
+            if(visited[i]==-1){
                 bfs(i,adj,visited);
             }
         }
