@@ -1,32 +1,33 @@
-class Solution {
+class Solution {  
+    static boolean ans;
+    public void dfs(int i,List<List<Integer>> adj,boolean[] path,boolean[] vis){
+        path[i]=true;
+        vis[i]=true;
+        for(int ele:adj.get(i)){
+            if(path[ele]==true){
+                ans=false;
+                return;
+            }
+            if(vis[ele]==false) dfs(ele,adj,path,vis);
+        }
+        path[i]=false;
+    }
     public boolean canFinish(int n, int[][] pre) {
+        ans=true;
         List<List<Integer>> adj=new ArrayList<>();
-        int[] indegree=new int[n];
         for(int i=0;i<n;i++){
             adj.add(new ArrayList<>());
         }
         for(int i=0;i<pre.length;i++){
             int a=pre[i][0],b=pre[i][1];
             adj.get(b).add(a);
-            indegree[a]++;
         }
-        //kahns algo
-        Queue<Integer> qu=new LinkedList<>();
-        List<Integer> ans=new ArrayList<>();
+        boolean[] path=new boolean[n];
+        boolean[] vis=new boolean[n];
         for(int i=0;i<n;i++){
-            if(indegree[i]==0) qu.add(i);
+            if(vis[i]==false)dfs(i,adj,path,vis);
         }
-        while(qu.size()>0){
-            int front=qu.remove();
-            ans.add(front);
-            for(int ele:adj.get(front)){
-                indegree[ele]--;
-                if(indegree[ele]==0){
-                    qu.add(ele);
-                }
-            }
-        }
-        if(ans.size()==n) return true;
-        else return false;
+        return ans;
+        
     }
 }
