@@ -4,10 +4,10 @@ class Solution {
         int low=1,high=x,mid=-1;
         while(high>=low){
             mid=low+(high-low)/2;
-            if((long)mid*mid>(long)x){
+            if((long)mid*mid>x){
                 high=mid-1;
             }
-            else if((long)mid*mid==(long)x){
+            else if((long)mid*mid==x){
                 return mid;
             }
             else low=mid+1;
