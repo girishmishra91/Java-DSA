@@ -6,10 +6,10 @@ class Solution {
         else return ans*ans*x;
     }
     public double myPow(double x, int n) {
-        long N=n;
-        if(N<0){
+        //long N=n;
+        if(n<0){
             x=1/x;
-            N=-N;
+            n=-n;
         }
         return power(x,n);
     }
