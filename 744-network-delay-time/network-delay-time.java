@@ -3,7 +3,7 @@ class Solution {
         int[] ans=new int[n+1];
         Arrays.fill(ans,Integer.MAX_VALUE);
         ans[src]=0;
-        for(int i=0;i<n;i++){
+        for(int i=1;i<=n-1;i++){
             for(int j=0;j<times.length;j++){
                 int u=times[j][0],v=times[j][1],w=times[j][2];
                 if(ans[u]!=Integer.MAX_VALUE && ans[u]+w<ans[v]){
